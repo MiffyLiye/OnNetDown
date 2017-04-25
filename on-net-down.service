@@ -1,0 +1,13 @@
+[Unit]
+Description=Daemon to run custom command on network disconnected
+Wants=network-online.target
+After=network.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/usr/bin/mono /root/bin/OnNetDown/OnNetDown.exe
+
+[Install]
+WantedBy=multi-user.target
